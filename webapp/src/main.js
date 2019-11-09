@@ -1,15 +1,33 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import router from './router'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import esui from 'element-ui';
+import '@/styles/esui-variables.scss';
+import 'element-ui/packages/theme-chalk/src/index.scss';
+import ERROR_CODES from '@/constants/errorCodes';
+import errorHandler from '@/services/errorHandler';
 
-Vue.config.productionTip = false
+window.__APP_VERSION__ = __VERSION__;
 
-/* eslint-disable no-new */
+Vue.use(esui);
+
+Vue.config.productionTip = false;
+Vue.config.errorHandler = errorHandler;
+
+Vue.prototype.$throw = function (error) {
+  if (typeof error === 'string') {
+    error = new Error(error);
+  }
+  if (!(error instanceof Error)) {
+    error = new Error('you should throw error or string');
+  }
+  errorHandler(error, this);
+};
+
+const errorCodeManager = ErrorCodeManager.getInstance();
+errorCodeManager.register(ERROR_CODES);
+
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app');

@@ -1,0 +1,64 @@
+@import "@/styles/var.scss";
+
+.operate-btns {
+  text-align: right;
+  margin: 0;
+}
+
+.operate-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $--spacing-small;
+
+  .operate-btn + .operate-btn {
+    margin-left: 0;
+  }
+}
+
+.search-wrap {
+  display: inline-flex;
+  margin-left: auto;
+  line-height: 30px;
+
+  .search-input {
+    width: 260px;
+  }
+}
+
+.delete-btn {
+  margin: 0 5px;
+  color: #f56c6c;
+
+  &:hover,
+  &:focus {
+    color: #f78989;
+  }
+
+  &:active {
+    color: #dd6161;
+  }
+
+  /deep/ span {
+    pointer-events: none;
+  }
+}
+
+.el-icon-error,
+.el-icon-info {
+  float: left;
+  font-size: 1rem;
+  margin-right: 10px;
+
+  &.el-icon-error {
+    color: red;
+  }
+
+  &.el-icon-info {
+    color: #1890ff;
+  }
+}
+
+.pagination {
+  text-align: right;
+  margin-top: 10px;
+}

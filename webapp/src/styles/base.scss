@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#app,
+.el-container {
+  height: 100%;
+}
+
+body {
+  min-width: 1280px;
+  margin: 0;
+  background: #f2f2f2 !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.el-main {
+  padding: 30px;
+}
+
+.el-scrollbar {
+  padding: 8px 0;
+}
+
+table em {
+  color: red;
+  background: yellow;
+  font-style: normal;
+} 
+
+thead .cell {
+  color: #303133;
+  font-size: 13px;
+}
+.el-table--mini tr td {
+  padding: 0;
+}
+.el-table--small tr td {
+  padding: 0;
+}
+.el-table--medium tr td {
+  padding: 0;
+}
+.table-flex {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /deep/ .el-table {
+    flex: 1;
+  }
+}

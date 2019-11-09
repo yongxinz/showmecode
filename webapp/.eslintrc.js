@@ -1,29 +1,48 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: 'babel-eslint'
+  globals: {
+    __VERSION__: false,
+    __DEV__: false,
+    __PUBLIC_PATH__: false,
+    ErrorCodeManager: false,
+    ErrorCodes: false,
+    ErrorAssert: false,
+    BusinessError: false,
+    DataProtocolError: false,
+    NetworkError: false
   },
   env: {
-    browser: true,
+    node: true
   },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
-  ],
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
-  // add your custom rules here
+  extends: ['plugin:vue/essential', 'standard'],
   rules: {
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    //"camelcase": ["error", {"allow": ["aa_bb"]}], 
+    // Identifier is not a camel case (camelcase)报错解决
+    'vue/no-parsing-error': [2, {
+      "x-invalid-end-tag": false
+    }],
+    "no-spaced-func": 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'any',
+        ignoreReadBeforeAssign: false
+      }
+    ],
+    semi: ['error', 'always'],
+    'vue/no-parsing-error': [
+      'error',
+      {
+        'x-invalid-end-tag': false
+      }
+    ]
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   }
-}
+};
