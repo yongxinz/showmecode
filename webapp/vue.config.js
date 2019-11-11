@@ -13,12 +13,12 @@ const webpackConfig = {
       __DEV__: mode === 'development'
     }),
     new webpack.ProvidePlugin({
-      ErrorCodeManager: ['@bfe/error-definition', 'ErrorCodeManager'],
-      ErrorCodes: ['@bfe/error-definition', 'ErrorCodeManager', 'errorCodes'],
-      ErrorAssert: ['@bfe/error-definition', 'ErrorAssert'],
-      BusinessError: ['@bfe/error-definition', 'BusinessError'],
-      DataProtocolError: ['@bfe/error-definition', 'DataProtocolError'],
-      NetworkError: ['@bfe/error-definition', 'NetworkError']
+      ErrorCodeManager: ['@/error-definition', 'ErrorCodeManager'],
+      ErrorCodes: ['@/error-definition', 'ErrorCodeManager', 'errorCodes'],
+      ErrorAssert: ['@/error-definition', 'ErrorAssert'],
+      BusinessError: ['@/error-definition', 'BusinessError'],
+      DataProtocolError: ['@/error-definition', 'DataProtocolError'],
+      NetworkError: ['@/error-definition', 'NetworkError']
     })
   ],
   devServer: {
@@ -41,8 +41,6 @@ const config = {
   chainWebpack: config => {
     config.module
       .rule('vue');
-      // .use(path.resolve(__dirname, 'loader.js'))
-      // .loader(path.resolve(__dirname, 'loader.js'));
   }
 };
 

@@ -1,5 +1,5 @@
 import stringify from 'json-stable-stringify';
-import DataProvider from '@bfe/data-provider-network';
+import DataProvider from '@bbfe/data-provider';
 
 import { REQUEST_TIMEOUT } from '@/constants';
 
